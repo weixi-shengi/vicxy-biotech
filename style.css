@@ -1,103 +1,149 @@
-<!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>薇璽生技 Weixi Biotech｜保健食品研發・ODM OEM</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-<body>
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Noto Sans TC", sans-serif;
+  color: #1c1c1c;
+  line-height: 1.7;
+}
 
-<header class="header">
-  <div class="logo">薇璽生技 <span>Weixi Biotech</span></div>
-  <nav>
-    <a href="#services">服務內容</a>
-    <a href="#solutions">研發方向</a>
-    <a href="#process">研發流程</a>
-    <a href="#contact" class="btn">聯絡我們</a>
-  </nav>
-</header>
+/* Header */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 48px;
+  border-bottom: 1px solid #eee;
+}
 
-<section class="hero">
-  <div class="hero-content">
-    <h1>為品牌打造<br>真正有效的保健食品</h1>
-    <p>專注保健食品研發 × 客製化 ODM / OEM × 科學配方</p>
-  </div>
-</section>
+.logo {
+  font-size: 20px;
+  font-weight: 700;
+}
 
-<section id="services" class="section">
-  <h2>我們能為你做什麼</h2>
-  <p class="subtitle">從概念到量產，一站式專業研發服務</p>
-  <div class="grid-3">
-    <div class="card">
-      <h3>配方研發</h3>
-      <p>依市場定位、族群需求與功效目標，設計具實證基礎的科學配方。</p>
-    </div>
-    <div class="card">
-      <h3>劑型與製程</h3>
-      <p>膠囊、錠劑、粉包、飲品等多元劑型，搭配穩定量產製程。</p>
-    </div>
-    <div class="card">
-      <h3>法規與上市</h3>
-      <p>符合台灣與國際法規需求，協助產品順利上市。</p>
-    </div>
-  </div>
-</section>
+.logo span {
+  font-weight: 400;
+  font-size: 14px;
+  margin-left: 6px;
+  color: #555;
+}
 
-<section id="solutions" class="section gray">
-  <h2>研發方向</h2>
-  <div class="grid-3">
-    <div class="card">
-      <h3>機能性保健食品</h3>
-      <p>腸道健康、免疫調節、抗疲勞、代謝支持。</p>
-    </div>
-    <div class="card">
-      <h3>客製配方開發</h3>
-      <p>依品牌策略與市場趨勢，打造差異化產品。</p>
-    </div>
-    <div class="card">
-      <h3>高穩定劑型</h3>
-      <p>確保有效成分穩定性與吸收率。</p>
-    </div>
-  </div>
-</section>
+nav a {
+  margin-left: 24px;
+  text-decoration: none;
+  color: #333;
+  font-size: 15px;
+}
 
-<section id="process" class="section">
-  <h2>研發流程</h2>
-  <div class="grid-4">
-    <div class="card step">
-      <span>01</span>
-      <h3>需求分析</h3>
-      <p>市場定位、族群分析、功效目標確認。</p>
-    </div>
-    <div class="card step">
-      <span>02</span>
-      <h3>配方設計</h3>
-      <p>依法規與功效設計原料與比例。</p>
-    </div>
-    <div class="card step">
-      <span>03</span>
-      <h3>試產測試</h3>
-      <p>穩定性、口感與製程測試。</p>
-    </div>
-    <div class="card step">
-      <span>04</span>
-      <h3>量產上市</h3>
-      <p>正式量產並協助上市。</p>
-    </div>
-  </div>
-</section>
+nav .btn {
+  border: 1px solid #333;
+  padding: 6px 14px;
+}
 
-<section id="contact" class="section dark">
-  <h2>聯絡我們</h2>
-  <p>歡迎洽詢合作，打造屬於您的專業保健產品</p>
-  <p class="contact">📧 coco334165@gmail.com</p>
-</section>
+/* Hero – 研發導向背景 */
+.hero {
+  height: 90vh;
+  background:
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url("https://images.unsplash.com/photo-1581091012184-5c7c1d87c6b1?auto=format&fit=crop&w=1600&q=80")
+    center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  padding: 0 60px;
+  color: #fff;
+}
 
-<footer class="footer">
-  © 2026 薇璽生技 Weixi Biotech. All rights reserved.
-</footer>
+.hero h1 {
+  font-size: 48px;
+  line-height: 1.25;
+  margin-bottom: 20px;
+}
 
-</body>
-</html>
+.hero p {
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+/* Sections */
+.section {
+  padding: 100px 60px;
+}
+
+.section h2 {
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+.section .subtitle {
+  color: #666;
+  margin-bottom: 48px;
+}
+
+.gray {
+  background: #f7f9fb;
+}
+
+.dark {
+  background: #111;
+  color: #fff;
+  text-align: center;
+}
+
+/* Grids */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 32px;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: #fff;
+  padding: 32px;
+  border-radius: 6px;
+  border: 1px solid #eee;
+}
+
+.card h3 {
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #555;
+}
+
+/* Steps */
+.step span {
+  display: block;
+  font-size: 28px;
+  font-weight: 700;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+/* Contact */
+.contact {
+  font-size: 18px;
+  margin-top: 12px;
+}
+
+/* Footer */
+.footer {
+  padding: 24px;
+  text-align: center;
+  font-size: 14px;
+  background: #000;
+  color: #aaa;
+}

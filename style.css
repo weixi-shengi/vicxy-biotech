@@ -124,3 +124,18 @@ a {
   font-size: 14px;
   color: #666;
 }
+/* JS 動畫支援 */
+.header-shadow {
+  box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: none;
+}

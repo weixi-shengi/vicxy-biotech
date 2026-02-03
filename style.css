@@ -1,80 +1,59 @@
-/* ===== 全域重置 ===== */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+/* 基礎設定：全站字體優化 */
+:root {
+    --primary-green: #15803d; /* 森林綠，代表健康與自然 */
+    --light-green: #f0fdf4;
+    --accent-gold: #b45309;   /* 輔助金，用於強調高品質 */
+}
+
+html {
+    scroll-behavior: smooth; /* 讓頁面錨點跳轉時有平滑滾動效果 */
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-    "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif;
-  color: #111;
-  background: #fff;
-  line-height: 1.7;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* ===== Header / 導覽列 ===== */
-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: #ffffff;
-  border-bottom: 1px solid #e5e5e5;
+/* 英雄視覺區的漸層微調 */
+.hero-gradient {
+    background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 50%, #dcfce7 100%);
 }
 
-.header-inner {
-  max-width: 1200px;
-  margin: auto;
-  padding: 14px 20px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+/* 服務卡片懸停動畫：向上微浮並增加陰影 */
+.service-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Logo */
-.logo {
-  font-size: 20px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  white-space: nowrap;
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
-/* Nav */
-nav {
-  display: flex;
-  gap: 28px;
+/* 自定義按鈕動畫 */
+.btn-primary {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-nav a {
-  text-decoration: none;
-  color: #111;
-  font-size: 15px;
-  letter-spacing: 0.5px;
-  white-space: nowrap;
+.btn-primary:hover {
+    filter: brightness(1.1);
+    transform: scale(1.05);
 }
 
-nav a:hover {
-  opacity: 0.6;
+/* 圖片裝飾效果：為實驗室圖片增加質感 */
+.img-mask {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    overflow: hidden;
 }
 
-/* 聯絡我們按鈕 */
-.nav-btn {
-  border: 1px solid #111;
-  padding: 6px 14px;
+/* 段落文字間距優化 */
+p {
+    text-align: justify;
+    margin-bottom: 1rem;
 }
 
-/* ===== 手機版（關鍵） ===== */
+/* 針對行動裝置的適配微調 */
 @media (max-width: 768px) {
-  .header-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-  }
-
-  nav {
-    width: 100%;
-    flex-wrap: wrap;
-    gap: 14px;
-  }
+    .hero-gradient {
+        text-align: center;
+    }
 }

@@ -3,148 +3,304 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>薇璽生技 WEIXI BIOTECH | 專業保健食品研發製造</title>
+    <title>薇璽生技 WEIXI BIOTECH | 領先全球的保健食品研發與製造</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700;900&display=swap');
-        body { font-family: 'Noto Sans TC', sans-serif; scroll-behavior: smooth; overflow-x: hidden; }
-        :root { --primary: #064e3b; --accent: #10b981; }
+        :root { --primary-green: #047857; --dark-bg: #0F172A; --light-text: #E2E8F0; } /* Tailwind colors converted */
 
-        @keyframes slideInUp {
-            from { opacity: 0; transform: translateY(60px); filter: blur(5px); }
-            to { opacity: 1; transform: translateY(0); filter: blur(0); }
+        body { 
+            font-family: 'Noto Sans TC', sans-serif; 
+            scroll-behavior: smooth; 
+            overflow-x: hidden; 
+            background-color: var(--dark-bg);
+            color: var(--light-text);
         }
-        .animate-reveal { animation: slideInUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; opacity: 0; }
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
 
-        .hero-bg {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('https://images.unsplash.com/photo-1579165466541-74e214958042?auto=format&fit=crop&q=80&w=2070');
+        /* Hero Section Parallax & Gradient Overlay */
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), 
+                        url('https://images.unsplash.com/photo-1628170287114-61c0c1b09b5d?auto=format&fit=crop&q=80&w=2070');
             background-attachment: fixed;
             background-size: cover;
             background-position: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
         }
+
+        /* Advanced Reveal Animations */
+        @keyframes fadeInScaleUp {
+            from { opacity: 0; transform: translateY(50px) scale(0.98); filter: blur(8px); }
+            to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+        }
+        @keyframes fadeInSlideRight {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .animate-fade-scale { animation: fadeInScaleUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; opacity: 0; }
+        .animate-slide-right { animation: fadeInSlideRight 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; opacity: 0; }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+
+        /* Glassmorphism Card Style */
         .glass-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.08); /* 更低的透明度，更深沉 */
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.4s ease;
-            border: 1px solid rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
         }
-        .glass-card:hover { transform: translateY(-12px); border-color: var(--accent); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .glass-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: var(--primary-green);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.12);
+        }
+        .glass-card::before { /* Animated Border Glow */
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(transparent, rgba(6, 180, 100, 0.3), transparent 30%);
+            transform: rotate(0deg);
+            animation: rotateGlow 8s linear infinite;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .glass-card:hover::before { opacity: 1; }
+
+        @keyframes rotateGlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Section Title Underline Animation */
+        .underline-animate {
+            position: relative;
+        }
+        .underline-animate::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            width: 0;
+            height: 4px;
+            background: var(--primary-green);
+            transition: width 0.6s ease-out, left 0.6s ease-out;
+            transform: translateX(-50%);
+        }
+        .underline-animate.active::after {
+            width: 80px; /* 控制線條長度 */
+            left: 50%;
+        }
+
+        /* Scroll Progress Bar */
+        #progressBar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(to right, #10B981, #065F46);
+            z-index: 100;
+        }
     </style>
 </head>
-<body class="bg-gray-50 text-slate-900">
+<body class="bg-slate-900 text-slate-100">
+    <div id="progressBar"></div>
 
-    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 px-6 py-4">
+    <nav class="fixed w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-gray-800 px-6 py-4 shadow-lg">
         <div class="container mx-auto flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-green-900 rounded-lg flex items-center justify-center shadow-lg">
+                <div class="w-10 h-10 bg-green-700 rounded-lg flex items-center justify-center shadow-xl">
                     <span class="text-white font-black text-xl">W</span>
                 </div>
                 <div class="flex flex-col">
-                    <span class="text-xl font-black tracking-tight text-green-900 leading-none">薇璽生技</span>
+                    <span class="text-xl font-black tracking-tight text-white leading-none">薇璽生技</span>
                     <span class="text-[10px] font-bold tracking-[0.2em] text-gray-400 uppercase">WEIXI BIOTECH</span>
                 </div>
             </div>
             <div class="flex items-center gap-4 lg:gap-8">
-                <a href="mailto:coco334165@gmail.com" class="text-gray-400 hover:text-green-700 transition"><i class="fas fa-envelope text-lg"></i></a>
-                <a href="https://line.me/ti/p/S4THqFVKxK" class="bg-green-700 text-white px-5 py-2.5 rounded-full text-xs font-black tracking-widest hover:bg-green-800 transition shadow-md flex items-center gap-2">
+                <a href="mailto:coco334165@gmail.com" class="text-gray-400 hover:text-green-500 transition"><i class="fas fa-envelope text-lg"></i></a>
+                <a href="https://line.me/ti/p/S4THqFVKxK" class="bg-green-700 text-white px-5 py-2.5 rounded-full text-xs font-black tracking-widest hover:bg-green-600 transition shadow-lg flex items-center gap-2">
                     <i class="fab fa-line"></i> LINE 洽談
                 </a>
             </div>
         </div>
     </nav>
 
-    <header class="hero-bg min-h-screen flex items-center justify-center text-white px-6">
+    <header class="hero-section text-white px-6">
         <div class="max-w-5xl text-center">
-            <h2 class="animate-reveal uppercase tracking-[0.5em] text-[10px] font-bold mb-6 text-green-400">Professional Bioresearch & OEM Center</h2>
-            <h1 class="animate-reveal delay-1 text-5xl md:text-8xl font-black mb-8 leading-tight">
-                薇璽生技<br><span class="text-green-400">WEIXI</span> 精準製造
+            <h2 class="animate-fade-scale uppercase tracking-[0.4em] text-sm md:text-base font-bold mb-6 text-green-400">國際級研發標準・卓越製造工藝</h2>
+            <h1 class="animate-fade-scale delay-1 text-5xl md:text-8xl font-extrabold mb-8 leading-tight font-['Playfair_Display']">
+                薇璽生技 <span class="text-green-400">WEIXI</span><br>定義保健新紀元
             </h1>
-            <p class="animate-reveal delay-2 text-gray-200 text-base md:text-lg max-w-2xl mx-auto mb-10 font-light leading-relaxed">
-                醫學背景團隊，為您的品牌提供最專業、一站式的 ODM 解決方案。從研發到生產，薇璽為品質把關。
+            <p class="animate-fade-scale delay-2 text-gray-300 text-base md:text-xl max-w-3xl mx-auto mb-12 font-light leading-relaxed">
+                憑藉深厚的醫學背景與頂尖的生化科技，薇璽生技是您最具前瞻性的 ODM 合作夥伴。我們將科學理論轉化為市場領導產品。
             </p>
-            <div class="animate-reveal delay-2">
-                <a href="https://line.me/ti/p/S4THqFVKxK" class="inline-flex px-10 py-4 bg-green-600 rounded-full font-black text-sm tracking-widest hover:bg-green-500 transition shadow-2xl items-center gap-3">
-                    <i class="fab fa-line text-xl"></i> 立即 LINE 顧問洽談
+            <div class="animate-fade-scale delay-3 flex flex-wrap justify-center gap-4">
+                <a href="#about-us" class="px-10 py-4 bg-green-700 rounded-full font-black text-sm tracking-widest hover:bg-green-600 transition shadow-2xl flex items-center gap-2">
+                    <i class="fas fa-flask text-lg"></i> 深入了解薇璽
+                </a>
+                <a href="https://line.me/ti/p/S4THqFVKxK" class="px-10 py-4 border border-white/30 rounded-full font-black text-sm tracking-widest hover:bg-white/10 transition backdrop-blur-sm flex items-center gap-2">
+                    <i class="fab fa-line text-lg"></i> 立即顧問洽談
                 </a>
             </div>
         </div>
     </header>
 
-    <section id="services" class="py-32 px-6 container mx-auto">
-        <div class="text-center mb-20">
-            <h3 class="text-green-600 font-bold tracking-widest text-xs uppercase mb-4">Our Expertise</h3>
-            <h2 class="text-4xl font-black text-slate-900 mb-6">全劑型精密製造解決方案</h2>
-            <div class="w-20 h-1.5 bg-green-600 mx-auto rounded-full"></div>
-        </div>
-
-        <div class="grid lg:grid-cols-3 gap-10">
-            <a href="capsules.html" class="glass-card p-12 rounded-[3rem] block group relative overflow-hidden">
-                <div class="absolute -right-4 -top-4 text-green-500/5 text-9xl group-hover:scale-110 transition duration-700"><i class="fas fa-capsules"></i></div>
-                <i class="fas fa-capsules text-4xl text-green-600 mb-8 block"></i>
-                <h4 class="text-2xl font-black mb-4 text-slate-800">專業膠囊填充</h4>
-                <p class="text-gray-500 text-sm leading-relaxed mb-8">提供植物性 HPMC 與專利抗酸技術，確保活性成分穩定。適用於益生菌與多種營養配方。</p>
-                <div class="flex items-center gap-2 text-xs font-black text-green-700 uppercase tracking-widest">
-                    Explore Details <i class="fas fa-arrow-right ml-1 group-hover:translate-x-2 transition"></i>
+    <section id="about-us" class="py-24 bg-slate-900 text-slate-100 px-6">
+        <div class="container mx-auto max-w-7xl">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2 animate-slide-right">
+                    <img src="https://images.unsplash.com/photo-1587370356616-e5c9a724b104?auto=format&fit=crop&q=80&w=2070" alt="實驗室研發" class="rounded-3xl shadow-xl border border-gray-700 object-cover h-[400px] w-full">
                 </div>
-            </a>
-            <a href="tablets.html" class="glass-card p-12 rounded-[3rem] block group relative overflow-hidden">
-                <div class="absolute -right-4 -top-4 text-blue-500/5 text-9xl group-hover:scale-110 transition duration-700"><i class="fas fa-pills"></i></div>
-                <i class="fas fa-pills text-4xl text-blue-600 mb-8 block"></i>
-                <h4 class="text-2xl font-black mb-4 text-slate-800">精密錠劑壓製</h4>
-                <p class="text-gray-500 text-sm leading-relaxed mb-8">高階膜衣技術與緩釋工藝，提升產品物理穩定度。針對口感與吞嚥優化的精緻設計。</p>
-                <div class="flex items-center gap-2 text-xs font-black text-blue-700 uppercase tracking-widest">
-                    Explore Details <i class="fas fa-arrow-right ml-1 group-hover:translate-x-2 transition"></i>
+                <div class="lg:w-1/2 animate-fade-scale delay-1">
+                    <h3 class="text-green-400 font-bold tracking-widest uppercase mb-4 text-sm">我們的願景與使命</h3>
+                    <h2 class="text-4xl md:text-5xl font-extrabold mb-6 leading-tight font-['Playfair_Display']">
+                        以科學為核心<br>驅動健康產業革新
+                    </h2>
+                    <p class="text-gray-400 text-lg leading-relaxed mb-8">
+                        薇璽生技匯聚來自醫學、藥學、生物科技領域的頂尖專家，致力於創新配方與製程技術。我們不僅製造，更為您的品牌提供完整的研發策略與市場洞察。
+                    </p>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i> ISO 22000 & HACCP 國際認證標準</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i> 獨家專利配方與活性成分穩定技術</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i> 從原料到成品的一站式品質管理</li>
+                    </ul>
                 </div>
-            </a>
-            <a href="powders.html" class="glass-card p-12 rounded-[3rem] block group relative overflow-hidden">
-                <div class="absolute -right-4 -top-4 text-amber-500/5 text-9xl group-hover:scale-110 transition duration-700"><i class="fas fa-bolt"></i></div>
-                <i class="fas fa-bolt text-4xl text-amber-500 mb-8 block"></i>
-                <h4 class="text-2xl font-black mb-4 text-slate-800">機能粉包造粒</h4>
-                <p class="text-gray-500 text-sm leading-relaxed mb-8">流動床速溶造粒與風味屏蔽技術。解決原料苦澀問題，讓高劑量營養補充更加美味便利。</p>
-                <div class="flex items-center gap-2 text-xs font-black text-amber-700 uppercase tracking-widest">
-                    Explore Details <i class="fas fa-arrow-right ml-1 group-hover:translate-x-2 transition"></i>
-                </div>
-            </a>
+            </div>
         </div>
     </section>
 
-    <footer class="bg-slate-950 text-white pt-24 pb-12 px-8">
+    <section id="features" class="py-24 bg-gray-950 text-slate-100 px-6">
+        <div class="container mx-auto text-center max-w-7xl">
+            <h2 class="text-4xl font-extrabold mb-4 underline-animate text-white" id="service-title">我們的核心優勢</h2>
+            <p class="text-gray-400 text-lg max-w-3xl mx-auto mb-16">
+                薇璽生技提供全面性的解決方案，確保您的產品從概念到上市，都能展現卓越的品質與市場競爭力。
+            </p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+                <div class="animate-fade-scale delay-1 p-8 bg-gray-800 rounded-2xl shadow-xl flex flex-col items-center text-center group">
+                    <i class="fas fa-vial text-5xl text-green-500 mb-6 group-hover:scale-110 transition duration-300"></i>
+                    <h3 class="text-xl font-bold mb-3 text-white">客製化配方研發</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">根據市場趨勢與品牌定位，精準打造獨一無二的專利配方。</p>
+                </div>
+                <div class="animate-fade-scale delay-2 p-8 bg-gray-800 rounded-2xl shadow-xl flex flex-col items-center text-center group">
+                    <i class="fas fa-microscope text-5xl text-blue-500 mb-6 group-hover:scale-110 transition duration-300"></i>
+                    <h3 class="text-xl font-bold mb-3 text-white">先進製造工藝</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">嚴格遵循 GMP 標準，採用自動化生產線，確保最高品質與效率。</p>
+                </div>
+                <div class="animate-fade-scale delay-3 p-8 bg-gray-800 rounded-2xl shadow-xl flex flex-col items-center text-center group">
+                    <i class="fas fa-shield-alt text-5xl text-yellow-500 mb-6 group-hover:scale-110 transition duration-300"></i>
+                    <h3 class="text-xl font-bold mb-3 text-white">嚴格品質把關</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">從原料到成品，多階段嚴謹檢測，確保產品符合國際安全法規。</p>
+                </div>
+                <div class="animate-fade-scale delay-4 p-8 bg-gray-800 rounded-2xl shadow-xl flex flex-col items-center text-center group">
+                    <i class="fas fa-chart-line text-5xl text-purple-500 mb-6 group-hover:scale-110 transition duration-300"></i>
+                    <h3 class="text-xl font-bold mb-3 text-white">市場策略支援</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">提供市場分析、包裝設計與法規諮詢，助您產品成功上市。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-slate-800 text-slate-100 px-6 text-center">
+        <div class="container mx-auto max-w-3xl">
+            <h2 class="animate-fade-scale text-4xl font-extrabold mb-6 font-['Playfair_Display']">開啟您的品牌新篇章</h2>
+            <p class="animate-fade-scale delay-1 text-gray-300 text-lg leading-relaxed mb-12">
+                薇璽生技期待與您攜手，將卓越的研發成果轉化為市場領先的保健產品。立即聯繫我們的專業顧問團隊。
+            </p>
+            <div class="animate-fade-scale delay-2 flex flex-col md:flex-row justify-center gap-6">
+                <a href="https://line.me/ti/p/S4THqFVKxK" class="flex items-center justify-center gap-3 px-10 py-4 bg-green-700 text-white rounded-full font-bold text-lg hover:bg-green-600 transition shadow-lg">
+                    <i class="fab fa-line text-2xl"></i> LINE 專業諮詢
+                </a>
+                <a href="mailto:coco334165@gmail.com" class="flex items-center justify-center gap-3 px-10 py-4 border border-gray-600 text-gray-200 rounded-full font-bold text-lg hover:border-green-600 hover:text-green-400 transition">
+                    <i class="fas fa-envelope text-2xl"></i> 電子信箱聯繫
+                </a>
+            </div>
+            <p class="animate-fade-scale delay-3 mt-10 text-gray-500 text-sm">
+                或直接寫信至: <a href="mailto:coco334165@gmail.com" class="text-green-500 hover:underline">coco334165@gmail.com</a>
+            </p>
+        </div>
+    </section>
+
+    <footer class="bg-slate-950 text-white/60 pt-20 pb-10 px-8">
         <div class="container mx-auto text-center">
-            <div class="mb-16 animate-reveal">
+            <div class="mb-12">
                 <div class="flex justify-center items-center gap-3 mb-6">
-                    <div class="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <div class="w-12 h-12 bg-green-700 rounded-xl flex items-center justify-center shadow-lg">
                         <span class="text-white font-black text-2xl">W</span>
                     </div>
                     <span class="text-3xl font-black text-white tracking-tighter">薇璽生技 <span class="text-green-500">WEIXI BIOTECH</span></span>
                 </div>
                 <p class="text-gray-500 max-w-lg mx-auto text-sm leading-relaxed">
-                    以科學為基石，以品質為承諾。我們是您品牌背後最堅實的技術支柱，共同創造極具市場競爭力的保健產品。
+                    以科學精粹，賦予生命活力。薇璽生技，您值得信賴的健康產業策略夥伴。
                 </p>
             </div>
             
-            <div class="flex justify-center gap-6 mb-16">
-                <a href="https://line.me/ti/p/S4THqFVKxK" class="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center hover:bg-green-600 transition group">
-                    <i class="fab fa-line text-2xl text-gray-400 group-hover:text-white"></i>
-                </a>
-                <a href="mailto:coco334165@gmail.com" class="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center hover:bg-blue-600 transition group">
-                    <i class="fas fa-envelope text-2xl text-gray-400 group-hover:text-white"></i>
-                </a>
-            </div>
-
-            <div class="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-gray-600 tracking-[0.3em] font-bold uppercase">
+            <div class="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-gray-600 tracking-[0.2em] font-bold uppercase">
                 <div>© 2026 WEIXI BIOTECH 薇璽生技. All Rights Reserved.</div>
                 <div class="flex gap-6">
-                    <span class="hover:text-white transition cursor-pointer">Quality Control</span>
-                    <span class="hover:text-white transition cursor-pointer">R&D Lab</span>
-                    <span class="hover:text-white transition cursor-pointer">Compliance</span>
+                    <span class="hover:text-white transition cursor-pointer">Quality Assured</span>
+                    <span class="hover:text-white transition cursor-pointer">Global Sourcing</span>
+                    <span class="hover:text-white transition cursor-pointer">R&D Innovation</span>
                 </div>
             </div>
         </div>
     </footer>
 
+    <script>
+        // Scroll-triggered animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active'); // For underline animation
+                    entry.target.classList.forEach(cls => {
+                        if (cls.startsWith('animate-')) {
+                            entry.target.style.animationPlayState = 'running';
+                        }
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 }); // Trigger when 20% of item is visible
+
+        document.querySelectorAll('.animate-fade-scale, .animate-slide-right').forEach(el => {
+            el.style.animationPlayState = 'paused'; // Pause animation initially
+            observer.observe(el);
+        });
+
+        // Underline animation for section titles
+        const underlineObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.5 });
+        document.querySelectorAll('.underline-animate').forEach(el => {
+            underlineObserver.observe(el);
+        });
+
+        // Scroll progress bar
+        window.onscroll = function() {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+        };
+    </script>
 </body>
 </html>

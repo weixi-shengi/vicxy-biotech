@@ -3,102 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>薇璽生技 VACY - 全球頂級保健食品代工研發中心</title>
+    <title>薇璽生技 VACY - 專業保健食品代工</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap');
-        body { font-family: 'Noto Sans TC', sans-serif; scroll-behavior: smooth; }
-
-        /* 進場動畫 */
-        @keyframes fadeInUp {
-            0% { opacity: 0; transform: translateY(40px); filter: blur(5px); }
-            100% { opacity: 1; transform: translateY(0); filter: blur(0); }
-        }
-        .animate-fadeInUp { animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
-        .delay-1 { animation-delay: 0.2s; opacity: 0; }
-        .delay-2 { animation-delay: 0.4s; opacity: 0; }
-
-        /* 按鈕閃光特效 */
-        .btn-shine {
-            position: relative;
-            overflow: hidden;
-            transition: 0.3s;
-        }
-        .btn-shine::after {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%;
-            width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: 0.6s;
-        }
-        .btn-shine:hover::after { left: 100%; }
-        .btn-shine:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(22,163,74,0.2); }
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap');
+        body { font-family: 'Noto Sans TC', sans-serif; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900">
     <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b px-6 py-4">
         <div class="container mx-auto flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <div class="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center text-white"><i class="fas fa-leaf"></i></div>
-                <span class="text-xl font-black text-green-900">薇璽生技 <span class="text-slate-400 font-light">VACY</span></span>
-            </div>
-            <div class="hidden md:flex gap-8 font-bold text-sm text-slate-600">
-                <a href="#services" class="hover:text-green-600 transition">生產項目</a>
-                <a href="ingredients.html" class="hover:text-green-600 transition">嚴選素材</a>
-                <a href="https://line.me/ti/p/S4THqFVKxK" class="text-green-600">聯繫窗口</a>
-            </div>
+            <span class="text-xl font-black text-green-900">薇璽生技 VACY</span>
+            <a href="https://line.me/ti/p/S4THqFVKxK" class="text-green-600 font-bold">聯繫我們</a>
         </div>
     </nav>
 
-    <section class="relative pt-48 pb-32 px-6 bg-white overflow-hidden">
-        <div class="container mx-auto max-w-6xl relative z-10">
-            <h2 class="animate-fadeInUp text-green-600 font-bold tracking-[0.3em] mb-4">BIOTECH EXCELLENCE</h2>
-            <h1 class="animate-fadeInUp delay-1 text-5xl lg:text-7xl font-black mb-8 leading-tight">頂級代工工藝<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-500">成就品牌價值</span></h1>
-            <p class="animate-fadeInUp delay-2 text-lg text-slate-500 mb-10 max-w-2xl">薇璽生技提供從配方研發到成品包裝的一站式服務，以醫藥級標準為您的產品品質把關。</p>
-            
-            <div class="animate-fadeInUp delay-2 flex flex-wrap gap-4">
-                <a href="#services" class="btn-shine bg-green-700 text-white px-10 py-4 rounded-2xl font-black flex items-center gap-2">探索專業方案</a>
-                <a href="https://line.me/ti/p/S4THqFVKxK" target="_blank" class="btn-shine bg-white border border-slate-200 px-10 py-4 rounded-2xl font-black flex items-center gap-2 hover:bg-slate-50"><i class="fab fa-line text-green-500 text-xl"></i> LINE 洽談</a>
-            </div>
-        </div>
-        <div class="absolute top-0 right-0 w-1/2 h-full bg-green-50/50 -skew-x-12 translate-x-32"></div>
-    </section>
-
-    <section id="services" class="py-24 px-6 container mx-auto max-w-6xl">
-        <h2 class="text-3xl font-black mb-16 text-center">核心生產技術</h2>
-        <div class="grid md:grid-cols-3 gap-8">
-            <a href="capsules.html" class="group bg-white p-10 rounded-[2.5rem] shadow-sm border border-slate-100 hover:border-green-500 transition-all text-center">
-                <div class="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mb-6 mx-auto group-hover:bg-green-600 transition-colors">
-                    <i class="fas fa-capsules text-3xl text-green-600 group-hover:text-white"></i>
-                </div>
-                <h3 class="text-xl font-black mb-4">專業膠囊填充</h3>
-                <p class="text-sm text-slate-400 mb-6">植物性 HPMC 與抗潮技術，規格齊全。</p>
-                <span class="text-green-600 font-bold text-sm">了解詳情 <i class="fas fa-chevron-right ml-1"></i></span>
+    <section class="pt-40 pb-20 px-6 text-center bg-white">
+        <h1 class="text-5xl font-black mb-6">頂級代工工藝</h1>
+        <p class="text-slate-500 mb-10 max-w-2xl mx-auto">從配方研發到成品包裝，一站式為您的品牌品質把關。</p>
+        
+        <div id="services" class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-12">
+            <a href="capsules.html" class="p-10 bg-white border rounded-[2rem] hover:shadow-xl transition">
+                <i class="fas fa-capsules text-4xl text-green-600 mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">專業膠囊</h3>
+                <p class="text-sm text-slate-400">了解更多技術規格</p>
             </a>
-            <a href="tablets.html" class="group bg-white p-10 rounded-[2.5rem] shadow-sm border border-slate-100 hover:border-blue-500 transition-all text-center">
-                <div class="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mb-6 mx-auto group-hover:bg-blue-600 transition-colors">
-                    <i class="fas fa-pills text-3xl text-blue-600 group-hover:text-white"></i>
-                </div>
-                <h3 class="text-xl font-black mb-4">精密錠劑壓製</h3>
-                <p class="text-sm text-slate-400 mb-6">膜衣包覆、緩釋技術，提升生物利用率。</p>
-                <span class="text-blue-600 font-bold text-sm">了解詳情 <i class="fas fa-chevron-right ml-1"></i></span>
+            <a href="tablets.html" class="p-10 bg-white border rounded-[2rem] hover:shadow-xl transition">
+                <i class="fas fa-pills text-4xl text-blue-600 mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">精密錠劑</h3>
+                <p class="text-sm text-slate-400">探索膜衣與緩釋技術</p>
             </a>
-            <a href="powders.html" class="group bg-white p-10 rounded-[2.5rem] shadow-sm border border-slate-100 hover:border-amber-500 transition-all text-center">
-                <div class="w-20 h-20 bg-amber-50 rounded-full flex items-center justify-center mb-6 mx-auto group-hover:bg-amber-600 transition-colors">
-                    <i class="fas fa-bolt text-3xl text-amber-600 group-hover:text-white"></i>
-                </div>
-                <h3 class="text-xl font-black mb-4">機能性粉包</h3>
-                <p class="text-sm text-slate-400 mb-6">噴霧造粒技術，口感極佳，速溶不結塊。</p>
-                <span class="text-amber-600 font-bold text-sm">了解詳情 <i class="fas fa-chevron-right ml-1"></i></span>
+            <a href="powders.html" class="p-10 bg-white border rounded-[2rem] hover:shadow-xl transition">
+                <i class="fas fa-bolt text-4xl text-amber-500 mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">機能粉包</h3>
+                <p class="text-sm text-slate-400">速溶造粒工藝介紹</p>
             </a>
         </div>
     </section>
 
-    <footer class="bg-slate-900 py-20 px-6 text-center text-white">
-        <h3 class="text-2xl font-black mb-10">立即啟動您的產品計畫</h3>
-        <a href="https://line.me/ti/p/S4THqFVKxK" class="bg-[#06C755] px-12 py-5 rounded-full font-black text-xl hover:scale-110 transition inline-block shadow-2xl">LINE 在線諮詢</a>
+    <footer class="bg-slate-900 py-10 text-center text-white">
+        <p>© 2026 薇璽生技 Vicxy Biotech. All Rights Reserved.</p>
     </footer>
 </body>
 </html>

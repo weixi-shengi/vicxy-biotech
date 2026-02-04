@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>服務方案與多元劑型 - 薇璽生技</title>
+    <title>專業方案與嚴選素材 - 薇璽生技</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -12,9 +12,11 @@
         .card-shadow { box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05); }
         .line-float { animation: pulse 2s infinite; }
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+        /* 鎖定文字不亂換行 */
+        .no-break { white-space: nowrap; }
     </style>
 </head>
-<body class="text-slate-800 pb-20">
+<body class="text-slate-800 pb-24">
 
     <nav class="bg-white shadow-sm sticky top-0 z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
@@ -25,42 +27,72 @@
         </div>
     </nav>
 
-    <section class="py-16 bg-white px-6 text-center border-b border-slate-100">
-        <h1 class="text-3xl font-black text-slate-900 mb-4">專業代工方案</h1>
-        <p class="text-slate-500 max-w-2xl mx-auto">精準配方研發，一站式代工製造服務。</p>
+    <section class="py-12 bg-white px-6 text-center border-b border-slate-100">
+        <h1 class="text-3xl font-black text-slate-900 mb-2">服務方案與素材</h1>
+        <p class="text-slate-500">頂級原料與專業代工的完美結合</p>
     </section>
 
-    <section class="container mx-auto px-6 py-12">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            <div class="bg-white p-8 rounded-3xl card-shadow border border-slate-100 hover:border-green-500 transition-all duration-300">
-                <div class="w-12 h-12 bg-green-100 text-green-700 rounded-xl flex items-center justify-center mb-6 text-xl font-bold">01</div>
-                <h3 class="text-2xl font-bold mb-4">新創品牌快速貼牌 (OEM)</h3>
-                <p class="text-slate-600 mb-6 text-sm">利用成熟配方，低門檻起訂量，快速打造自有產品。</p>
-                <a href="https://line.me/ti/p/S4THqFVKxK" class="block text-center py-4 bg-green-700 text-white rounded-2xl font-bold hover:bg-green-800 transition">諮詢此方案</a>
+    <section class="container mx-auto px-6 py-10">
+        <h2 class="text-2xl font-black mb-8 border-l-8 border-green-600 pl-4">合作方案</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+            <div class="bg-white p-6 rounded-3xl card-shadow border border-slate-100">
+                <div class="w-10 h-10 bg-green-100 text-green-700 rounded-lg flex items-center justify-center mb-4 font-bold">01</div>
+                <h3 class="text-xl font-bold mb-2">快速貼牌 (OEM)</h3>
+                <p class="text-slate-500 text-sm mb-6">低門檻、高品質，快速驗證市場商機。</p>
+                <a href="https://line.me/ti/p/S4THqFVKxK" class="block text-center py-3 bg-green-700 text-white rounded-xl font-bold text-sm">立即洽談</a>
             </div>
-            <div class="bg-white p-8 rounded-3xl card-shadow border border-slate-100 hover:border-blue-500 transition-all duration-300">
-                <div class="w-12 h-12 bg-blue-100 text-blue-700 rounded-xl flex items-center justify-center mb-6 text-xl font-bold">02</div>
-                <h3 class="text-2xl font-bold mb-4">全客製研發代工 (ODM)</h3>
-                <p class="text-slate-600 mb-6 text-sm">專屬獨家配方開發，協助導入國際專利原料。</p>
-                <a href="https://line.me/ti/p/S4THqFVKxK" class="block text-center py-4 bg-blue-700 text-white rounded-2xl font-bold hover:bg-blue-800 transition">預約研發諮詢</a>
+            <div class="bg-white p-6 rounded-3xl card-shadow border border-slate-100">
+                <div class="w-10 h-10 bg-blue-100 text-blue-700 rounded-lg flex items-center justify-center mb-4 font-bold">02</div>
+                <h3 class="text-xl font-bold mb-2">專屬研發 (ODM)</h3>
+                <p class="text-slate-500 text-sm mb-6">獨家配方開發，打造品牌差異化核心。</p>
+                <a href="https://line.me/ti/p/S4THqFVKxK" class="block text-center py-3 bg-blue-700 text-white rounded-xl font-bold text-sm">預約研發</a>
             </div>
         </div>
 
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-2xl font-black mb-8 border-l-8 border-green-600 pl-4">核心劑型介紹</h2>
-            <div class="grid grid-cols-1 gap-4 text-sm">
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-50">
-                    <h4 class="font-bold text-green-800 text-lg mb-2">膠囊 (Capsules)</h4>
-                    <p class="text-slate-500">保護成分活性，吸收效果佳，適合植物性或動物性填充。</p>
+        <h2 class="text-2xl font-black mb-8 border-l-8 border-green-600 pl-4 text-gray-900">嚴選五大黃金素材</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-16">
+            <div class="bg-white p-5 rounded-2xl shadow-sm border border-green-50 flex items-start gap-4">
+                <div class="text-2xl mt-1">💊</div>
+                <div>
+                    <h4 class="font-bold text-green-800 mb-1 no-break">頂級魚油 (Omega-3)</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed">rTG 型態高吸收率，專利去味技術。</p>
                 </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-50">
-                    <h4 class="font-bold text-green-800 text-lg mb-2">錠劑 (Tablets)</h4>
-                    <p class="text-slate-500">大小可客製，成本穩定，適合一般保健或複合配方。</p>
+            </div>
+            <div class="bg-white p-5 rounded-2xl shadow-sm border border-green-50 flex items-start gap-4">
+                <div class="text-2xl mt-1">🦠</div>
+                <div>
+                    <h4 class="font-bold text-green-800 mb-1 no-break">多層包埋益生菌</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed">抗胃酸、高存活率，穩定調整腸道菌叢。</p>
                 </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-50">
-                    <h4 class="font-bold text-green-800 text-lg mb-2">粉包 (Sachets)</h4>
-                    <p class="text-slate-500">攜帶便利、口感多變，適合高劑量功能性產品。</p>
+            </div>
+            <div class="bg-white p-5 rounded-2xl shadow-sm border border-green-50 flex items-start gap-4">
+                <div class="text-2xl mt-1">🌸</div>
+                <div>
+                    <h4 class="font-bold text-green-800 mb-1 no-break">水解膠原蛋白</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed">胜肽級小分子，極速補充支撐美力。</p>
                 </div>
+            </div>
+            <div class="bg-white p-5 rounded-2xl shadow-sm border border-green-50 flex items-start gap-4">
+                <div class="text-2xl mt-1">👁️</div>
+                <div>
+                    <h4 class="font-bold text-green-800 mb-1 no-break">專利游離型葉黃素</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed">FloraGLO 認證，黃金比例守護明亮。</p>
+                </div>
+            </div>
+            <div class="bg-white p-5 rounded-2xl shadow-sm border border-green-50 flex items-start gap-4">
+                <div class="text-2xl mt-1">🌿</div>
+                <div>
+                    <h4 class="font-bold text-green-800 mb-1 no-break">機能性綜合酵素</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed">多重代謝輔助，維持消化道健康環境。</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="text-2xl font-black mb-8 border-l-8 border-green-600 pl-4 text-gray-900">核心劑型介紹</h2>
+        <div class="space-y-3">
+            <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100">
+                <h4 class="font-bold text-green-800 text-lg mb-1">膠囊 / 錠劑 / 粉包</h4>
+                <p class="text-slate-500 text-sm">提供全方位劑型選擇，滿足不同消費者的服用習慣。</p>
             </div>
         </div>
     </section>
@@ -69,5 +101,6 @@
         <i class="fab fa-line text-2xl mr-2"></i>
         <span class="font-bold tracking-wider">LINE 諮詢</span>
     </a>
+
 </body>
 </html>
